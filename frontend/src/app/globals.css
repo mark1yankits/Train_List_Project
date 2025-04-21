@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+/* layout.css */
+
+.app-body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #f3f4f6; 
+  color: #1f2937;            
+}
+
+.app-header {
+  background-color: #2563eb; 
+  color: white;
+  padding: 1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.app-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.logo__train{
+  width: 36px;
+  height: auto;
+}
+
+.app-main {
+  flex: 1;
+  max-width: 768px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.app-footer {
+  background-color: #2563eb;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+}

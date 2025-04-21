@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 6, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"","debugId":null}},
+    {"offset": {"line": 24, "column": 0}, "map": {"version":3,"sources":["file:///Users/markkits/Train-list/frontend/src/app/page.tsx"],"sourcesContent":["// Імпортуємо redirect із Next.js для перенаправлення\nimport { redirect } from 'next/navigation';\n\n// Експортуємо компонент головної сторінки\nexport default function HomePage() {\n  // Виконуємо перенаправлення на /user\n  redirect('/user');\n}"],"names":[],"mappings":"AAAA,qDAAqD;;;;AACrD;AAAA;;AAGe,SAAS;IACtB,qCAAqC;IACrC,CAAA,GAAA,qLAAA,CAAA,WAAQ,AAAD,EAAE;AACX","debugId":null}}]
+}
