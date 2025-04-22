@@ -22,23 +22,31 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TrainController = void 0;
-// backend/src/train/train.controller.ts
 const common_1 = require("@nestjs/common");
 const train_service_1 = require("./train.service");
 const create_train_dto_1 = require("./dto/create-train.dto");
+const jwt_auth_guard_1 = require("../auth/jwt/jwt-auth.guard");
 let TrainController = class TrainController {
     constructor(trainService) {
         this.trainService = trainService;
     }
+    // Створити новий поїзд
     create(createTrainDto) {
         return __awaiter(this, void 0, void 0, function* () {
             const train = yield this.trainService.create(createTrainDto);
-            return { message: 'Train created successfully', train };
+            return {
+                message: 'Train created successfully',
+                train,
+            };
         });
     }
-    findAll() {
+    // Отримати всі поїзди з фільтрами
+    findAll(departureCity, arrivalCity) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.trainService.findAll();
+            return this.trainService.findAllFiltered({
+                departureCity,
+                arrivalCity,
+            });
         });
     }
 };
@@ -52,11 +60,14 @@ __decorate([
 ], TrainController.prototype, "create", null);
 __decorate([
     (0, common_1.Get)(),
+    __param(0, (0, common_1.Query)('departureCity')),
+    __param(1, (0, common_1.Query)('arrivalCity')),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
+    __metadata("design:paramtypes", [String, String]),
     __metadata("design:returntype", Promise)
 ], TrainController.prototype, "findAll", null);
 exports.TrainController = TrainController = __decorate([
     (0, common_1.Controller)('trains'),
+    (0, common_1.UseGuards)(jwt_auth_guard_1.JwtAuthGuard),
     __metadata("design:paramtypes", [train_service_1.TrainService])
 ], TrainController);

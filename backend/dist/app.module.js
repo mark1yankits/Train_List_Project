@@ -11,6 +11,8 @@ const common_1 = require("@nestjs/common");
 const typeorm_1 = require("@nestjs/typeorm");
 const database_service_1 = require("./database/database.service"); // шляхи адаптуй
 const train_module_1 = require("./train/train.module");
+const auth_module_1 = require("./auth/auth.module");
+const users_module_1 = require("./users/users.module");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -21,6 +23,8 @@ exports.AppModule = AppModule = __decorate([
                 useClass: database_service_1.DatabaseService,
             }),
             train_module_1.TrainModule,
+            auth_module_1.AuthModule,
+            users_module_1.UsersModule,
         ],
         providers: [database_service_1.DatabaseService], // 👈 додай сюди, щоб Nest міг його інжектити
     })

@@ -1,4 +1,3 @@
-// backend/src/train/train.service.ts
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
@@ -7,21 +6,36 @@ import { CreateTrainDto } from './dto/create-train.dto';
 
 @Injectable()
 export class TrainService {
-  constructor(
+constructor(
     @InjectRepository(Train)
-    private trainRepository: Repository<Train>,
-  ) {}
+    private readonly trainRepository: Repository<Train>,
+) {}
 
-  async create(createTrainDto: CreateTrainDto): Promise<Train> {
-    const newTrain = this.trainRepository.create({
-      ...createTrainDto,
-      departureTime: new Date(createTrainDto.departureTime),
-      arrivalTime: new Date(createTrainDto.arrivalTime),
-    });
-    return this.trainRepository.save(newTrain);
-  }
+  // create travel
+async create(createTrainDto: CreateTrainDto): Promise<Train> {
+    const train = this.trainRepository.create(createTrainDto);
+    return this.trainRepository.save(train);
+}
 
-  async findAll(): Promise<Train[]> {
-    return this.trainRepository.find();
-  }
+  // get all trains filter
+async findAllFiltered(filters: {
+    departureCity?: string;
+    arrivalCity?: string;
+}): Promise<Train[]> {
+    const query = this.trainRepository.createQueryBuilder('train');
+
+    if (filters.departureCity) {
+        query.andWhere('train.departureCity ILIKE :departureCity', {
+        departureCity: `%${filters.departureCity}%`,
+        });
+    }
+
+    if (filters.arrivalCity) {
+        query.andWhere('train.arrivalCity ILIKE :arrivalCity', {
+        arrivalCity: `%${filters.arrivalCity}%`,
+        });
+    }
+
+    return query.getMany();
+}
 }

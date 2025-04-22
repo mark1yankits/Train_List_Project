@@ -22,7 +22,6 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TrainService = void 0;
-// backend/src/train/train.service.ts
 const common_1 = require("@nestjs/common");
 const typeorm_1 = require("@nestjs/typeorm");
 const typeorm_2 = require("typeorm");
@@ -31,15 +30,28 @@ let TrainService = class TrainService {
     constructor(trainRepository) {
         this.trainRepository = trainRepository;
     }
+    // create travel
     create(createTrainDto) {
         return __awaiter(this, void 0, void 0, function* () {
-            const newTrain = this.trainRepository.create(Object.assign(Object.assign({}, createTrainDto), { departureTime: new Date(createTrainDto.departureTime), arrivalTime: new Date(createTrainDto.arrivalTime) }));
-            return this.trainRepository.save(newTrain);
+            const train = this.trainRepository.create(createTrainDto);
+            return this.trainRepository.save(train);
         });
     }
-    findAll() {
+    // get all trains filter
+    findAllFiltered(filters) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.trainRepository.find();
+            const query = this.trainRepository.createQueryBuilder('train');
+            if (filters.departureCity) {
+                query.andWhere('train.departureCity ILIKE :departureCity', {
+                    departureCity: `%${filters.departureCity}%`,
+                });
+            }
+            if (filters.arrivalCity) {
+                query.andWhere('train.arrivalCity ILIKE :arrivalCity', {
+                    arrivalCity: `%${filters.arrivalCity}%`,
+                });
+            }
+            return query.getMany();
         });
     }
 };
