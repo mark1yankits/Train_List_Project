@@ -19,7 +19,7 @@ export default function UserPage() {
 
   const fetchTrains = async () => {
     try {
-      const response = await axios.get<Train[]>('http://localhost:3002/trains');
+      const response = await axios.get<Train[]>('http://localhost:3009/trains');
       setTrains(response.data);
       setLoading(false);
     } catch (error) {

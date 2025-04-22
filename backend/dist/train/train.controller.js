@@ -25,7 +25,6 @@ exports.TrainController = void 0;
 const common_1 = require("@nestjs/common");
 const train_service_1 = require("./train.service");
 const create_train_dto_1 = require("./dto/create-train.dto");
-const jwt_auth_guard_1 = require("../auth/jwt/jwt-auth.guard");
 let TrainController = class TrainController {
     constructor(trainService) {
         this.trainService = trainService;
@@ -68,6 +67,5 @@ __decorate([
 ], TrainController.prototype, "findAll", null);
 exports.TrainController = TrainController = __decorate([
     (0, common_1.Controller)('trains'),
-    (0, common_1.UseGuards)(jwt_auth_guard_1.JwtAuthGuard),
     __metadata("design:paramtypes", [train_service_1.TrainService])
 ], TrainController);

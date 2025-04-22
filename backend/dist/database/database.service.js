@@ -19,6 +19,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.DatabaseService = void 0;
 const common_1 = require("@nestjs/common");
 const train_entity_1 = require("../train/entities/train.entity");
+const user_entity_1 = require("../users/entities/user.entity");
 let DatabaseService = DatabaseService_1 = class DatabaseService {
     constructor() {
         this.logger = new common_1.Logger(DatabaseService_1.name);
@@ -31,7 +32,7 @@ let DatabaseService = DatabaseService_1 = class DatabaseService {
             username: 'markkits',
             password: ' ',
             database: 'train_schedule_db',
-            entities: [train_entity_1.Train],
+            entities: [train_entity_1.Train, user_entity_1.User],
             synchronize: true,
             logging: true,
         };

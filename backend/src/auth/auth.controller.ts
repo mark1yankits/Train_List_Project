@@ -10,14 +10,23 @@ constructor(private readonly authService: AuthService) {}
 async login(@Body() body: LoginDto) {
     const user = await this.authService.validateUser(body.email, body.password);
     if (!user) {
-    return { message: 'Invalid credentials' };
+        return { message: 'Invalid credentials' };
     }
     return { message: 'Login successful', user };
 }
 
-@Post('register')
-async register(@Body() body: RegisterDto) {
-    const newUser = await this.authService.register(body.email, body.password); // залежить від сигнатури методу
+  @Post('register') // Add this decorator
+    async register(@Body() body: RegisterDto) {
+    if (!body.email || !body.password || !body.name || !body.surname) {
+        return { message: 'Missing required fields' };
+    }
+
+    const newUser = await this.authService.register(
+        body.email,
+        body.password,
+        body.name,
+        body.surname
+    );
     return { message: 'User registered', newUser };
 }
 }

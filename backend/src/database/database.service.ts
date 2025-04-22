@@ -1,6 +1,7 @@
 import { Injectable, OnModuleInit, Logger } from '@nestjs/common';
 import { TypeOrmModuleOptions, TypeOrmOptionsFactory } from '@nestjs/typeorm';
 import { Train } from '../train/entities/train.entity';
+import { User } from '../users/entities/user.entity';
 
 @Injectable()
 export class DatabaseService implements TypeOrmOptionsFactory, OnModuleInit {
@@ -14,7 +15,7 @@ export class DatabaseService implements TypeOrmOptionsFactory, OnModuleInit {
         username: 'markkits',
         password: ' ', 
         database: 'train_schedule_db',
-        entities: [Train],
+        entities: [Train,User],
         synchronize: true, 
         logging: true,
     };

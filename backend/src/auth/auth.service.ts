@@ -25,10 +25,11 @@ async login(user: any) {
     };
 }
 
-async register( email: string, password: string): Promise<any> {
-    const hashedPassword = await bcrypt.hash(password, 10); //hesh pass
-    const user = await this.userService.create( email, hashedPassword);
-    const { password: _, ...result } = user; 
+async register(email: string, password: string, name: string, surname: string): Promise<any> {
+    const hashedPassword = await bcrypt.hash(password, 10);
+    const user = await this.userService.create(email, hashedPassword, name, surname);
+    const { password: _, ...result } = user;
     return result;
 }
+
 }

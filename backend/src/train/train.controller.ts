@@ -12,7 +12,7 @@ import { Train } from './entities/train.entity';
 import { JwtAuthGuard } from '../auth/jwt/jwt-auth.guard';
 
 @Controller('trains')
-@UseGuards(JwtAuthGuard)
+
 export class TrainController {
   constructor(private readonly trainService: TrainService) {}
 

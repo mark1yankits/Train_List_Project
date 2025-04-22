@@ -9,7 +9,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.AppModule = void 0;
 const common_1 = require("@nestjs/common");
 const typeorm_1 = require("@nestjs/typeorm");
-const database_service_1 = require("./database/database.service"); // шляхи адаптуй
+const database_service_1 = require("./database/database.service");
 const train_module_1 = require("./train/train.module");
 const auth_module_1 = require("./auth/auth.module");
 const users_module_1 = require("./users/users.module");
@@ -26,6 +26,6 @@ exports.AppModule = AppModule = __decorate([
             auth_module_1.AuthModule,
             users_module_1.UsersModule,
         ],
-        providers: [database_service_1.DatabaseService], // 👈 додай сюди, щоб Nest міг його інжектити
+        providers: [database_service_1.DatabaseService],
     })
 ], AppModule);
