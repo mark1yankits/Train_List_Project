@@ -10,26 +10,27 @@ export class AuthService {
         private readonly jwtService: JwtService
     ) {}
 
-async validateUser(email: string, pass: string): Promise<any> {
-    const user = await this.userService.findOneByEmail(email);
-    if (user && (await bcrypt.compare(pass, user.password))) {
-    const { password, ...result } = user;
-    return result;
+    async validateUser(email: string, pass: string): Promise<any> {
+        const user = await this.userService.findOneByEmail(email);
+        if (user && (await bcrypt.compare(pass, user.password))) {
+            const { password, ...result } = user;
+            return result;
+        }
+        return null;
     }
-    return null;
-}
-async login(user: any) {
-    const payload = { username: user.username, sub: user.id };
-    return {
-    access_token: this.jwtService.sign(payload),
-    };
-}
 
-async register(email: string, password: string, name: string, surname: string): Promise<any> {
-    const hashedPassword = await bcrypt.hash(password, 10);
-    const user = await this.userService.create(email, hashedPassword, name, surname);
-    const { password: _, ...result } = user;
-    return result;
-}
+    async login(user: any) {
+        const payload = { email: user.email, sub: user.id, role: user.role };
+        return {
+            access_token: this.jwtService.sign(payload),
+            user: { email: user.email, role: user.role, name: user.name, surname: user.surname },
+        };
+    }
 
+    async register(email: string, password: string, name: string, surname: string, role: 'user' | 'admin' = 'user'): Promise<any> {
+        const hashedPassword = await bcrypt.hash(password, 10);
+        const user = await this.userService.create(email, hashedPassword, name, surname, role);
+        const { password: _, ...result } = user;
+        return result;
+    }
 }

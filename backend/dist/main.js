@@ -49,10 +49,14 @@ const express = __importStar(require("express"));
 function bootstrap() {
     return __awaiter(this, void 0, void 0, function* () {
         const app = yield core_1.NestFactory.create(app_module_1.AppModule);
-        // Це правильний спосіб додати body-parser (він уже в express)
         app.use(express.json());
-        // Увімкнення глобального ValidationPipe
         app.useGlobalPipes(new common_1.ValidationPipe());
+        app.enableCors({
+            origin: ['http://localhost:3002', 'http://localhost:3000'],
+            methods: 'GET,POST,PUT,DELETE,OPTIONS',
+            allowedHeaders: ['Content-Type', 'Authorization'],
+            credentials: true,
+        });
         yield app.listen(3009);
     });
 }

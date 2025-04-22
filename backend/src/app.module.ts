@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { DatabaseService } from './database/database.service'; 
+import { DatabaseService } from './database/database.service';
 import { TrainModule } from './train/train.module';
 import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
@@ -14,6 +14,6 @@ import { UsersModule } from './users/users.module';
     AuthModule,
     UsersModule,
   ],
-  providers: [DatabaseService], 
+  providers: [DatabaseService],
 })
 export class AppModule {}

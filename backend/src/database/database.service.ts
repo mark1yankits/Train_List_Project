@@ -16,8 +16,9 @@ export class DatabaseService implements TypeOrmOptionsFactory, OnModuleInit {
         password: ' ', 
         database: 'train_schedule_db',
         entities: [Train,User],
-        synchronize: true, 
+        synchronize: false, 
         logging: true,
+        schema: 'public',
     };
 }
 

@@ -1,9 +1,9 @@
 export class UpdateTrainDto {
     trainName?: string;
-    departCity?: string;
-    arrivalCity?: string;
-    departTime?: Date;
-    arrivalTime?: Date;
-    duration?: string;
     trainNumber?: string;
+    departureCity?: string; // Виправлено з departCity
+    arrivalCity?: string;
+    departureTime?: string; // Виправлено з departTime і Date на string
+    arrivalTime?: string; // Виправлено з Date на string
+    duration?: string;
 }

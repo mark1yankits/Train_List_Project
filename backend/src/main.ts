@@ -6,11 +6,16 @@ import * as express from 'express';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
-  // Це правильний спосіб додати body-parser (він уже в express)
   app.use(express.json());
 
-  // Увімкнення глобального ValidationPipe
   app.useGlobalPipes(new ValidationPipe());
+
+  app.enableCors({
+    origin: ['http://localhost:3002', 'http://localhost:3000'],
+    methods: 'GET,POST,PUT,DELETE,OPTIONS',
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true,
+  });
 
   await app.listen(3009);
 }

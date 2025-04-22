@@ -29,29 +29,70 @@ const train_entity_1 = require("./entities/train.entity");
 let TrainService = class TrainService {
     constructor(trainRepository) {
         this.trainRepository = trainRepository;
+        console.log('TrainService initialized with repository:', !!this.trainRepository);
     }
-    // create travel
     create(createTrainDto) {
         return __awaiter(this, void 0, void 0, function* () {
+            console.log('Creating train with data:', createTrainDto);
             const train = this.trainRepository.create(createTrainDto);
-            return this.trainRepository.save(train);
+            const savedTrain = yield this.trainRepository.save(train);
+            console.log('Saved train:', savedTrain);
+            return savedTrain;
         });
     }
-    // get all trains filter
     findAllFiltered(filters) {
         return __awaiter(this, void 0, void 0, function* () {
+            console.log('Filtering trains with:', filters);
+            // Перевірка всіх записів у таблиці
+            const allTrains = yield this.trainRepository.find();
+            console.log('All trains in database:', allTrains);
             const query = this.trainRepository.createQueryBuilder('train');
-            if (filters.departureCity) {
+            if (filters.departureCity && filters.departureCity.trim()) {
+                console.log('Applying departureCity filter:', filters.departureCity.trim());
                 query.andWhere('train.departureCity ILIKE :departureCity', {
-                    departureCity: `%${filters.departureCity}%`,
+                    departureCity: `%${filters.departureCity.trim()}%`,
                 });
             }
-            if (filters.arrivalCity) {
+            if (filters.arrivalCity && filters.arrivalCity.trim()) {
+                console.log('Applying arrivalCity filter:', filters.arrivalCity.trim());
                 query.andWhere('train.arrivalCity ILIKE :arrivalCity', {
-                    arrivalCity: `%${filters.arrivalCity}%`,
+                    arrivalCity: `%${filters.arrivalCity.trim()}%`,
                 });
             }
-            return query.getMany();
+            const trains = yield query.getMany();
+            console.log('Generated SQL:', query.getSql());
+            console.log('Found trains:', trains);
+            return trains;
+        });
+    }
+    findOne(id) {
+        return __awaiter(this, void 0, void 0, function* () {
+            console.log('Finding train with ID:', id);
+            const train = yield this.trainRepository.findOneBy({ id });
+            console.log('Found train:', train);
+            return train;
+        });
+    }
+    update(id, updateTrainDto) {
+        return __awaiter(this, void 0, void 0, function* () {
+            console.log('Updating train with ID:', id, 'and data:', updateTrainDto);
+            const train = yield this.trainRepository.findOneBy({ id });
+            if (!train) {
+                console.log('Train not found for ID:', id);
+                return null;
+            }
+            Object.assign(train, updateTrainDto);
+            const updatedTrain = yield this.trainRepository.save(train);
+            console.log('Updated train:', updatedTrain);
+            return updatedTrain;
+        });
+    }
+    remove(id) {
+        return __awaiter(this, void 0, void 0, function* () {
+            console.log('Deleting train with ID:', id);
+            const result = yield this.trainRepository.delete(id);
+            console.log('Delete result:', result);
+            return !!result.affected;
         });
     }
 };

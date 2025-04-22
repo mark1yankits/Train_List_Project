@@ -1,28 +1,28 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 
-@Entity('trains')
+@Entity('trains') // Явно вказуємо назву таблиці
 export class Train {
   @PrimaryGeneratedColumn()
   id!: number;
 
-  @Column({ default: 'Unnamed Train' })
+  @Column()
   trainName!: string;
 
   @Column({ nullable: true })
-  trainNumber!: string;
+  trainNumber?: string;
 
-  @Column({ default: 'Default City' })
+  @Column()
   departureCity!: string;
 
-  @Column({ default: 'Default City' })
+  @Column()
   arrivalCity!: string;
 
-  @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
-  departureTime!: Date;
+  @Column()
+  departureTime!: string;
 
-  @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
-  arrivalTime!: Date;
+  @Column()
+  arrivalTime!: string;
 
-  @Column({ default: '0h 0m' }) 
+  @Column()
   duration!: string;
 }

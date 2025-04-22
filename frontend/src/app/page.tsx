@@ -1,56 +1,98 @@
 'use client';
-import axios from 'axios';
-import { useEffect, useState } from 'react';
 
-interface Train {
-  id: number;
-  trainName: string;
-  departCity: string;
-  arrivalCity: string;
-  departTime: string;
-  arrivalTime: string;
-  duration: string;
-  trainNumber?: string;
+import { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+import LoginForm from './components/LoginForm';
+
+interface User {
+  email: string;
+  role: 'user' | 'admin';
+  name: string;
+  surname: string;
 }
 
 export default function HomePage() {
-  const [trains, setTrains] = useState<Train[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [user, setUser] = useState<User | null>(null);
+  const [token, setToken] = useState<string | null>(null);
+  const router = useRouter();
 
-  const fetchTrains = async () => {
-    try {
-      const response = await axios.get<Train[]>('http://localhost:3000/trains');
-      setTrains(response.data);
-      setLoading(false);
-    } catch (error) {
-      console.error('Помилка при завантаженні поїздів:', error);
-      setLoading(false);
+  // Перевірка авторизації при завантаженні сторінки
+  useEffect(() => {
+    const storedToken = localStorage.getItem('authToken');
+    const storedUser = localStorage.getItem('user');
+    if (storedToken && storedUser) {
+      setToken(storedToken);
+      setUser(JSON.parse(storedUser));
+      setIsAuthenticated(true);
+    }
+  }, []);
+
+  const handleLogin = (user: User, token: string) => {
+    setUser(user);
+    setToken(token);
+    localStorage.setItem('authToken', token);
+    localStorage.setItem('user', JSON.stringify(user));
+    setIsAuthenticated(true);
+    router.push('/pages/User'); // Перенаправлення на сторінку розкладу після логіну
+  };
+
+  const handleViewSchedule = () => {
+    if (isAuthenticated) {
+      router.push('/pages/User'); // Якщо авторизований, переходимо на сторінку розкладу
     }
   };
 
-  useEffect(() => {
-    fetchTrains();
-  }, []);
+  const handleLogout = () => {
+    localStorage.removeItem('authToken');
+    localStorage.removeItem('user');
+    setIsAuthenticated(false);
+    setUser(null);
+    setToken(null);
+  };
 
   return (
-    <div style={{ padding: '20px' }}>
-      <h1>Розклад поїздів</h1>
-      {loading ? (
-        <p>Завантаження...</p>
-      ) : trains.length === 0 ? (
-        <p>Поїздів не знайдено.</p>
+    <div style={{ padding: '20px', textAlign: 'center' }}>
+      <h1 style={{ fontSize: '28px', marginBottom: '20px' }}>Ласкаво просимо до розкладу поїздів!</h1>
+      <p style={{ fontSize: '16px', color: '#555', marginBottom: '30px' }}>
+        Дізнайтесь розклад поїздів, щоб спланувати свою подорож. Увійдіть, щоб переглянути деталі.
+      </p>
+
+      {isAuthenticated ? (
+        <div>
+          <p style={{ fontSize: '16px', marginBottom: '20px' }}>
+            Ви увійшли як: {user?.email} ({user?.role})
+          </p>
+          <button
+            onClick={handleViewSchedule}
+            style={{
+              padding: '10px 20px',
+              backgroundColor: '#007bff',
+              color: '#fff',
+              border: 'none',
+              borderRadius: '4px',
+              cursor: 'pointer',
+              marginRight: '10px',
+            }}
+          >
+            Переглянути розклад
+          </button>
+          <button
+            onClick={handleLogout}
+            style={{
+              padding: '10px 20px',
+              backgroundColor: '#dc3545',
+              color: '#fff',
+              border: 'none',
+              borderRadius: '4px',
+              cursor: 'pointer',
+            }}
+          >
+            Вийти
+          </button>
+        </div>
       ) : (
-        <ul>
-          {trains.map((train) => (
-            <li key={train.id} style={{ marginBottom: '10px' }}>
-              {train.trainName} | {train.departCity} → {train.arrivalCity} | 
-              Час відправлення: {new Date(train.departTime).toLocaleString()} | 
-              Час прибуття: {new Date(train.arrivalTime).toLocaleString()} | 
-              Тривалість: {train.duration} | 
-              Номер поїзда: {train.trainNumber || 'Немає'}
-            </li>
-          ))}
-        </ul>
+        <LoginForm onLogin={handleLogin} />
       )}
     </div>
   );

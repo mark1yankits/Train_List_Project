@@ -33,8 +33,9 @@ let DatabaseService = DatabaseService_1 = class DatabaseService {
             password: ' ',
             database: 'train_schedule_db',
             entities: [train_entity_1.Train, user_entity_1.User],
-            synchronize: true,
+            synchronize: false,
             logging: true,
+            schema: 'public',
         };
     }
     onModuleInit() {

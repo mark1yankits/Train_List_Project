@@ -25,11 +25,11 @@ exports.TrainController = void 0;
 const common_1 = require("@nestjs/common");
 const train_service_1 = require("./train.service");
 const create_train_dto_1 = require("./dto/create-train.dto");
+const update_train_dto_1 = require("./dto/update-train.dto");
 let TrainController = class TrainController {
     constructor(trainService) {
         this.trainService = trainService;
     }
-    // Створити новий поїзд
     create(createTrainDto) {
         return __awaiter(this, void 0, void 0, function* () {
             const train = yield this.trainService.create(createTrainDto);
@@ -39,13 +39,54 @@ let TrainController = class TrainController {
             };
         });
     }
-    // Отримати всі поїзди з фільтрами
     findAll(departureCity, arrivalCity) {
         return __awaiter(this, void 0, void 0, function* () {
             return this.trainService.findAllFiltered({
                 departureCity,
                 arrivalCity,
             });
+        });
+    }
+    findOne(id) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const trainId = parseInt(id, 10);
+            if (isNaN(trainId)) {
+                throw new common_1.NotFoundException(`Invalid ID ${id}`);
+            }
+            const train = yield this.trainService.findOne(trainId);
+            if (!train) {
+                throw new common_1.NotFoundException(`Train with ID ${id} not found`);
+            }
+            return train;
+        });
+    }
+    update(id, updateTrainDto) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const trainId = parseInt(id, 10);
+            if (isNaN(trainId)) {
+                throw new common_1.NotFoundException(`Invalid ID ${id}`);
+            }
+            const updated = yield this.trainService.update(trainId, updateTrainDto);
+            if (!updated) {
+                throw new common_1.NotFoundException(`Train with ID ${id} not found`);
+            }
+            return {
+                message: 'Train updated successfully',
+                train: updated,
+            };
+        });
+    }
+    remove(id) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const trainId = parseInt(id, 10);
+            if (isNaN(trainId)) {
+                throw new common_1.NotFoundException(`Invalid ID ${id}`);
+            }
+            const success = yield this.trainService.remove(trainId);
+            if (!success) {
+                throw new common_1.NotFoundException(`Train with ID ${id} not found`);
+            }
+            return { message: 'Train deleted successfully' };
         });
     }
 };
@@ -65,6 +106,28 @@ __decorate([
     __metadata("design:paramtypes", [String, String]),
     __metadata("design:returntype", Promise)
 ], TrainController.prototype, "findAll", null);
+__decorate([
+    (0, common_1.Get)(':id'),
+    __param(0, (0, common_1.Param)('id')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", Promise)
+], TrainController.prototype, "findOne", null);
+__decorate([
+    (0, common_1.Put)(':id'),
+    __param(0, (0, common_1.Param)('id')),
+    __param(1, (0, common_1.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String, update_train_dto_1.UpdateTrainDto]),
+    __metadata("design:returntype", Promise)
+], TrainController.prototype, "update", null);
+__decorate([
+    (0, common_1.Delete)(':id'),
+    __param(0, (0, common_1.Param)('id')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", Promise)
+], TrainController.prototype, "remove", null);
 exports.TrainController = TrainController = __decorate([
     (0, common_1.Controller)('trains'),
     __metadata("design:paramtypes", [train_service_1.TrainService])

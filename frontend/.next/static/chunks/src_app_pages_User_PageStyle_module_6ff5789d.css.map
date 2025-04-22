@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 1, "column": 0}, "map": {"version":3,"sources":["file:///Users/markkits/Train-list/frontend/src/app/pages/User/PageStyle.module.css"],"sourcesContent":[".container {\n    padding: 20px;\n    max-width: 1200px;\n    margin: 0 auto;\n}\n\n.title {\n    font-size: 24px;\n    font-weight: bold;\n    margin-bottom: 20px;\n    color: #333;\n}\n\n.searchWrapper {\n    margin-bottom: 20px;\n}\n\n.searchInput {\n    width: 100%;\n    max-width: 400px;\n    padding: 8px;\n    border: 1px solid #ccc;\n    border-radius: 4px;\n    font-size: 16px;\n}\n\n.trainTable {\n    width: 100%;\n    border-collapse: collapse;\n    background-color: #fff;\n    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n    border-radius: 4px;\n}\n\n.tableHeader {\n    background-color: #f0f0f0;\n}\n\n.tableHeaderCell {\n    padding: 10px;\n    text-align: left;\n    font-weight: bold;\n    cursor: pointer;\n}\n\n.tableHeaderCell:hover {\n    background-color: #e0e0e0;\n}\n\n.tableRow {\n    border-bottom: 1px solid #eee;\n}\n\n.tableCell {\n    padding: 10px;\n    text-align: left;\n}\n\n.tableRow:hover {\n    background-color: #f9f9f9;\n}"],"names":[],"mappings":"AAAA;;;;;;AAMA;;;;;;;AAOA;;;;AAIA;;;;;;;;;AASA;;;;;;;;AAQA;;;;AAIA;;;;;;;AAOA;;;;AAIA;;;;AAIA;;;;;AAKA","debugId":null}}]
+}

@@ -22,6 +22,8 @@ export class RegisterDto {
 
     @IsNotEmpty()
     surname!: string;
-
+    
+    @IsNotEmpty()
+    role!: 'user' | 'admin';
     
 }

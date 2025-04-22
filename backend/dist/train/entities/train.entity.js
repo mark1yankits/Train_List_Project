@@ -19,7 +19,7 @@ __decorate([
     __metadata("design:type", Number)
 ], Train.prototype, "id", void 0);
 __decorate([
-    (0, typeorm_1.Column)({ default: 'Unnamed Train' }),
+    (0, typeorm_1.Column)(),
     __metadata("design:type", String)
 ], Train.prototype, "trainName", void 0);
 __decorate([
@@ -27,25 +27,25 @@ __decorate([
     __metadata("design:type", String)
 ], Train.prototype, "trainNumber", void 0);
 __decorate([
-    (0, typeorm_1.Column)({ default: 'Default City' }),
+    (0, typeorm_1.Column)(),
     __metadata("design:type", String)
 ], Train.prototype, "departureCity", void 0);
 __decorate([
-    (0, typeorm_1.Column)({ default: 'Default City' }),
+    (0, typeorm_1.Column)(),
     __metadata("design:type", String)
 ], Train.prototype, "arrivalCity", void 0);
 __decorate([
-    (0, typeorm_1.Column)({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' }),
-    __metadata("design:type", Date)
+    (0, typeorm_1.Column)(),
+    __metadata("design:type", String)
 ], Train.prototype, "departureTime", void 0);
 __decorate([
-    (0, typeorm_1.Column)({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' }),
-    __metadata("design:type", Date)
+    (0, typeorm_1.Column)(),
+    __metadata("design:type", String)
 ], Train.prototype, "arrivalTime", void 0);
 __decorate([
-    (0, typeorm_1.Column)({ default: '0h 0m' }),
+    (0, typeorm_1.Column)(),
     __metadata("design:type", String)
 ], Train.prototype, "duration", void 0);
 exports.Train = Train = __decorate([
-    (0, typeorm_1.Entity)('trains')
+    (0, typeorm_1.Entity)('trains') // Явно вказуємо назву таблиці
 ], Train);
