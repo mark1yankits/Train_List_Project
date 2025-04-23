@@ -17,10 +17,10 @@ exports.DatabaseModule = DatabaseModule = __decorate([
     (0, common_1.Module)({
         imports: [
             typeorm_1.TypeOrmModule.forRootAsync({
-                useClass: database_service_1.DatabaseService, // Використовуємо DatabaseService для конфігурації
+                useClass: database_service_1.DatabaseService,
             }),
         ],
-        providers: [database_service_1.DatabaseService], // Додаємо DatabaseService як провайдер
-        exports: [database_service_1.DatabaseService], // Експортуємо, якщо потрібно використовувати в інших модулях
+        providers: [database_service_1.DatabaseService],
+        exports: [database_service_1.DatabaseService],
     })
 ], DatabaseModule);

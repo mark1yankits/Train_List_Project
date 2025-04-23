@@ -1,91 +1,92 @@
 /* [project]/src/app/pages/Admin/AdminPage.module.css [app-client] (css) */
 .AdminPage-module__VIVoiG__adminContainer {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 20px;
 }
 
 .AdminPage-module__VIVoiG__title {
-  text-align: center;
-  margin-bottom: 20px;
-  font-size: 32px;
+	text-align: center;
+	margin-bottom: 20px;
+	font-size: 32px;
 }
 
 .AdminPage-module__VIVoiG__searchInput {
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  width: 100%;
-  margin-bottom: 20px;
-  padding: 10px;
-  font-size: 16px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	width: 100%;
+	margin-bottom: 20px;
+	padding: 10px;
+	font-size: 16px;
 }
 
 .AdminPage-module__VIVoiG__trainTable {
-  border-collapse: collapse;
-  width: 100%;
-  margin-bottom: 20px;
+	border-collapse: collapse;
+	width: 100%;
+	margin-bottom: 20px;
 }
 
-.AdminPage-module__VIVoiG__trainTable th, .AdminPage-module__VIVoiG__trainTable td {
-  text-align: left;
-  border: 1px solid #ddd;
-  padding: 10px;
+.AdminPage-module__VIVoiG__trainTable th,
+.AdminPage-module__VIVoiG__trainTable td {
+	text-align: left;
+	border: 1px solid #ddd;
+	padding: 10px;
 }
 
 .AdminPage-module__VIVoiG__trainTable th {
-  background-color: #f4f4f4;
+	background-color: #f4f4f4;
 }
 
-.AdminPage-module__VIVoiG__editButton, .AdminPage-module__VIVoiG__deleteButton {
-  cursor: pointer;
-  border: none;
-  border-radius: 4px;
-  margin-right: 5px;
-  padding: 5px 10px;
-  font-size: 14px;
+.AdminPage-module__VIVoiG__editButton,
+.AdminPage-module__VIVoiG__deleteButton {
+	cursor: pointer;
+	border: none;
+	border-radius: 4px;
+	margin-right: 5px;
+	padding: 5px 10px;
+	font-size: 14px;
 }
 
 .AdminPage-module__VIVoiG__editButton {
-  color: #fff;
-  background-color: #4caf50;
+	color: #fff;
+	background-color: #4caf50;
 }
 
 .AdminPage-module__VIVoiG__deleteButton {
-  color: #fff;
-  background-color: #f44336;
+	color: #fff;
+	background-color: #f44336;
 }
 
 .AdminPage-module__VIVoiG__formTitle {
-  margin-bottom: 20px;
-  font-size: 24px;
+	margin-bottom: 20px;
+	font-size: 24px;
 }
 
 .AdminPage-module__VIVoiG__form {
-  flex-direction: column;
-  gap: 10px;
-  display: flex;
+	flex-direction: column;
+	gap: 10px;
+	display: flex;
 }
 
 .AdminPage-module__VIVoiG__formInput {
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  padding: 10px;
-  font-size: 16px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	padding: 10px;
+	font-size: 16px;
 }
 
 .AdminPage-module__VIVoiG__submitButton {
-  color: #fff;
-  cursor: pointer;
-  background-color: #007bff;
-  border: none;
-  border-radius: 4px;
-  padding: 10px;
-  font-size: 18px;
+	color: #fff;
+	cursor: pointer;
+	background-color: #007bff;
+	border: none;
+	border-radius: 4px;
+	padding: 10px;
+	font-size: 18px;
 }
 
 .AdminPage-module__VIVoiG__submitButton:hover {
-  background-color: #0056b3;
+	background-color: #0056b3;
 }
-
 
 /*# sourceMappingURL=src_app_pages_Admin_AdminPage_module_d657c6d2.css.map*/

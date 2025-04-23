@@ -1,65 +1,64 @@
 /* [project]/src/app/pages/User/PageStyle.module.css [app-client] (css) */
 .PageStyle-module__cyIYoq__container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 20px;
 }
 
 .PageStyle-module__cyIYoq__title {
-  color: #333;
-  margin-bottom: 20px;
-  font-size: 24px;
-  font-weight: bold;
+	color: #333;
+	margin-bottom: 20px;
+	font-size: 24px;
+	font-weight: bold;
 }
 
 .PageStyle-module__cyIYoq__searchWrapper {
-  margin-bottom: 20px;
+	margin-bottom: 20px;
 }
 
 .PageStyle-module__cyIYoq__searchInput {
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  width: 100%;
-  max-width: 400px;
-  padding: 8px;
-  font-size: 16px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	width: 100%;
+	max-width: 400px;
+	padding: 8px;
+	font-size: 16px;
 }
 
 .PageStyle-module__cyIYoq__trainTable {
-  border-collapse: collapse;
-  background-color: #fff;
-  border-radius: 4px;
-  width: 100%;
-  box-shadow: 0 2px 4px #0000001a;
+	border-collapse: collapse;
+	background-color: #fff;
+	border-radius: 4px;
+	width: 100%;
+	box-shadow: 0 2px 4px #0000001a;
 }
 
 .PageStyle-module__cyIYoq__tableHeader {
-  background-color: #f0f0f0;
+	background-color: #f0f0f0;
 }
 
 .PageStyle-module__cyIYoq__tableHeaderCell {
-  text-align: left;
-  cursor: pointer;
-  padding: 10px;
-  font-weight: bold;
+	text-align: left;
+	cursor: pointer;
+	padding: 10px;
+	font-weight: bold;
 }
 
 .PageStyle-module__cyIYoq__tableHeaderCell:hover {
-  background-color: #e0e0e0;
+	background-color: #e0e0e0;
 }
 
 .PageStyle-module__cyIYoq__tableRow {
-  border-bottom: 1px solid #eee;
+	border-bottom: 1px solid #eee;
 }
 
 .PageStyle-module__cyIYoq__tableCell {
-  text-align: left;
-  padding: 10px;
+	text-align: left;
+	padding: 10px;
 }
 
 .PageStyle-module__cyIYoq__tableRow:hover {
-  background-color: #f9f9f9;
+	background-color: #f9f9f9;
 }
-
 
 /*# sourceMappingURL=src_app_pages_User_PageStyle_module_6ff5789d.css.map*/

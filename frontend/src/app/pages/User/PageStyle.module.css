@@ -1,61 +1,61 @@
 .container {
-    padding: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
+	padding: 20px;
+	max-width: 1200px;
+	margin: 0 auto;
 }
 
 .title {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 20px;
-    color: #333;
+	font-size: 24px;
+	font-weight: bold;
+	margin-bottom: 20px;
+	color: #333;
 }
 
 .searchWrapper {
-    margin-bottom: 20px;
+	margin-bottom: 20px;
 }
 
 .searchInput {
-    width: 100%;
-    max-width: 400px;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
+	width: 100%;
+	max-width: 400px;
+	padding: 8px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	font-size: 16px;
 }
 
 .trainTable {
-    width: 100%;
-    border-collapse: collapse;
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    border-radius: 4px;
+	width: 100%;
+	border-collapse: collapse;
+	background-color: #fff;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	border-radius: 4px;
 }
 
 .tableHeader {
-    background-color: #f0f0f0;
+	background-color: #f0f0f0;
 }
 
 .tableHeaderCell {
-    padding: 10px;
-    text-align: left;
-    font-weight: bold;
-    cursor: pointer;
+	padding: 10px;
+	text-align: left;
+	font-weight: bold;
+	cursor: pointer;
 }
 
 .tableHeaderCell:hover {
-    background-color: #e0e0e0;
+	background-color: #e0e0e0;
 }
 
 .tableRow {
-    border-bottom: 1px solid #eee;
+	border-bottom: 1px solid #eee;
 }
 
 .tableCell {
-    padding: 10px;
-    text-align: left;
+	padding: 10px;
+	text-align: left;
 }
 
 .tableRow:hover {
-    background-color: #f9f9f9;
+	background-color: #f9f9f9;
 }

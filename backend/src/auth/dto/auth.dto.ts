@@ -1,29 +1,28 @@
 import { IsEmail, IsNotEmpty } from 'class-validator';
 
 export class LoginDto {
-    @IsEmail()
-    @IsNotEmpty()
-    email!: string;
+	@IsEmail()
+	@IsNotEmpty()
+	email!: string;
 
-    @IsNotEmpty()
-    password!: string;
+	@IsNotEmpty()
+	password!: string;
 }
 
 export class RegisterDto {
-    @IsEmail()
-    @IsNotEmpty()
-    email!: string;
+	@IsEmail()
+	@IsNotEmpty()
+	email!: string;
 
-    @IsNotEmpty()
-    password!: string;
+	@IsNotEmpty()
+	password!: string;
 
-    @IsNotEmpty()
-    name!: string;
+	@IsNotEmpty()
+	name!: string;
 
-    @IsNotEmpty()
-    surname!: string;
-    
-    @IsNotEmpty()
-    role!: 'user' | 'admin';
-    
+	@IsNotEmpty()
+	surname!: string;
+
+	@IsNotEmpty()
+	role!: 'user' | 'admin';
 }

@@ -1,28 +1,28 @@
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 
-@Entity('trains') // Явно вказуємо назву таблиці
+@Entity('trains')
 export class Train {
-  @PrimaryGeneratedColumn()
-  id!: number;
+	@PrimaryGeneratedColumn()
+	id!: number;
 
-  @Column()
-  trainName!: string;
+	@Column()
+	trainName!: string;
 
-  @Column({ nullable: true })
-  trainNumber?: string;
+	@Column({ nullable: true })
+	trainNumber?: string;
 
-  @Column()
-  departureCity!: string;
+	@Column()
+	departureCity!: string;
 
-  @Column()
-  arrivalCity!: string;
+	@Column()
+	arrivalCity!: string;
 
-  @Column()
-  departureTime!: string;
+	@Column()
+	departureTime!: string;
 
-  @Column()
-  arrivalTime!: string;
+	@Column()
+	arrivalTime!: string;
 
-  @Column()
-  duration!: string;
+	@Column()
+	duration!: string;
 }

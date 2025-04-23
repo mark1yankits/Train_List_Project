@@ -6,14 +6,14 @@ import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
 
 @Module({
-  imports: [
-    TypeOrmModule.forRootAsync({
-      useClass: DatabaseService,
-    }),
-    TrainModule,
-    AuthModule,
-    UsersModule,
-  ],
-  providers: [DatabaseService],
+	imports: [
+		TypeOrmModule.forRootAsync({
+			useClass: DatabaseService,
+		}),
+		TrainModule,
+		AuthModule,
+		UsersModule,
+	],
+	providers: [DatabaseService],
 })
 export class AppModule {}

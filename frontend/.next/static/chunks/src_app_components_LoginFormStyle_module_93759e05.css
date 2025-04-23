@@ -1,77 +1,76 @@
 /* [project]/src/app/components/LoginFormStyle.module.css [app-client] (css) */
 .LoginFormStyle-module__Wf0BzG__loginContainer {
-  text-align: center;
-  background-color: #fff;
-  border-radius: 4px;
-  max-width: 400px;
-  margin: 50px auto;
-  padding: 20px;
-  box-shadow: 0 2px 4px #0000001a;
+	text-align: center;
+	background-color: #fff;
+	border-radius: 4px;
+	max-width: 400px;
+	margin: 50px auto;
+	padding: 20px;
+	box-shadow: 0 2px 4px #0000001a;
 }
 
 .LoginFormStyle-module__Wf0BzG__loginTitle {
-  color: #333;
-  margin-bottom: 20px;
-  font-size: 20px;
-  font-weight: bold;
+	color: #333;
+	margin-bottom: 20px;
+	font-size: 20px;
+	font-weight: bold;
 }
 
 .LoginFormStyle-module__Wf0BzG__modeToggle {
-  justify-content: center;
-  margin-bottom: 20px;
-  display: flex;
+	justify-content: center;
+	margin-bottom: 20px;
+	display: flex;
 }
 
 .LoginFormStyle-module__Wf0BzG__activeTab {
-  color: #fff;
-  cursor: pointer;
-  background-color: #007bff;
-  border: none;
-  border-radius: 4px 0 0 4px;
-  padding: 10px 20px;
+	color: #fff;
+	cursor: pointer;
+	background-color: #007bff;
+	border: none;
+	border-radius: 4px 0 0 4px;
+	padding: 10px 20px;
 }
 
 .LoginFormStyle-module__Wf0BzG__inactiveTab {
-  color: #333;
-  cursor: pointer;
-  background-color: #e0e0e0;
-  border: none;
-  border-radius: 0 4px 4px 0;
-  padding: 10px 20px;
+	color: #333;
+	cursor: pointer;
+	background-color: #e0e0e0;
+	border: none;
+	border-radius: 0 4px 4px 0;
+	padding: 10px 20px;
 }
 
 .LoginFormStyle-module__Wf0BzG__inactiveTab:hover {
-  background-color: #d0d0d0;
+	background-color: #d0d0d0;
 }
 
 .LoginFormStyle-module__Wf0BzG__loginInput {
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  width: 100%;
-  margin-bottom: 10px;
-  padding: 8px;
-  font-size: 16px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	width: 100%;
+	margin-bottom: 10px;
+	padding: 8px;
+	font-size: 16px;
 }
 
 .LoginFormStyle-module__Wf0BzG__loginButton {
-  color: #fff;
-  cursor: pointer;
-  background-color: #007bff;
-  border: none;
-  border-radius: 4px;
-  width: 100%;
-  padding: 10px;
-  font-size: 16px;
+	color: #fff;
+	cursor: pointer;
+	background-color: #007bff;
+	border: none;
+	border-radius: 4px;
+	width: 100%;
+	padding: 10px;
+	font-size: 16px;
 }
 
 .LoginFormStyle-module__Wf0BzG__loginButton:hover {
-  background-color: #0056b3;
+	background-color: #0056b3;
 }
 
 .LoginFormStyle-module__Wf0BzG__loginError {
-  color: red;
-  margin-top: 10px;
+	color: red;
+	margin-top: 10px;
 }
-
 
 /*# sourceMappingURL=src_app_components_LoginFormStyle_module_93759e05.css.map*/
