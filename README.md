@@ -29,14 +29,15 @@ with the frontend built using React.js and the backend powered by Nest.js. The a
 - **Backend**: Node.js, Nest.js
 - **Database**: PostgreSQL
 - **Authentication**: JWT (JSON Web Tokens)
-- **Deployment**: The frontend is deployed on Vercel, but the backend is not yet deployed to a cloud platform (plans for future deployment on Heroku or AWS).
+## Deployment
+- The frontend is deployed on [Vercel](https://train-list-project.vercel.app/), but the backend is not yet deployed to a cloud platform (plans for future deployment on Heroku or AWS).
 
 ## Installation
 
 ### Clone the Repository
 Clone this repository to your local machine:
 ```bash
-git clone https://github.com/yourusername/train-list-project.git
+git clone https://github.com/mark1yankits/Train_List_Project.git
 ```
 
 ### 2. Navigate to the backend directory and install dependencies:
@@ -82,5 +83,6 @@ Backend deployment to a cloud platform (e.g., Heroku or AWS).
 Optimization of search functionality and database queries.
 
 Improve UI/UX design for a more polished user experience.
+
 
 
