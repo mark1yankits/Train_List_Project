@@ -32,6 +32,9 @@ with the frontend built using React.js and the backend powered by Nest.js. The a
 ## Deployment
 - The frontend is deployed on [Vercel](https://train-list-project.vercel.app/), but the backend is not yet deployed to a cloud platform (plans for future deployment on Heroku or AWS).
 
+- /pages/User - user page
+- /pages/Admin - admin page
+
 ## Installation
 
 ### Clone the Repository
