@@ -68,9 +68,9 @@ npm run dev
 
 - The backend is not yet deployed on the server, but it is working locally via npm run start:dev. Deployment to a cloud platform (such as Heroku or AWS) is planned for the near future.
 
--The application currently has a basic version with minimal UI/UX design. This can be improved in the future.
+- The application currently has a basic version with minimal UI/UX design. This can be improved in the future.
 
--More complex search queries and filtering can be optimized for database performance.
+- More complex search queries and filtering can be optimized for database performance.
 
 
 
